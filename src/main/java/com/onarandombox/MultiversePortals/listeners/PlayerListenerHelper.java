@@ -41,6 +41,7 @@ public class PlayerListenerHelper {
         if (!plugin.getCore().getMVConfig().getEnforceAccess() || (d.getRequiredPermission() == null)
                 || (d.getRequiredPermission().length() == 0) || player.hasPermission(d.getRequiredPermission())) {
             SafeTTeleporter playerTeleporter = this.plugin.getCore().getSafeTTeleporter();
+            player.eject();
             TeleportResult result = playerTeleporter.safelyTeleport(player, player, d);
             if (result == TeleportResult.SUCCESS) {
                 ps.playerDidTeleport(to);
